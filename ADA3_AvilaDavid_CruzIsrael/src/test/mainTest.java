@@ -23,7 +23,19 @@ import java.util.Scanner;
  * @author userhp
  */
 public class mainTest {
+      private static Scanner x;
       public static void main(String[] args) {
+        Scanner user = new Scanner(System.in);
+        Scanner contrasenia = new Scanner(System.in);
+        String username;
+        String password;
+        String archivo="miembros.csv";
+        System.out.println("Identifíquese");
+        System.out.println("Coloque su nombre de usuario:");
+        username=user.nextLine();
+        System.out.println("Coloque su contraseña:");
+        password=contrasenia.nextLine();
+        if(Login(username,password,archivo)==true){
         List<Usuario> usuarios = new ArrayList<Usuario>();
         String nombreFich = "alumnos.csv";
         Scanner reader = new Scanner(System.in);
@@ -85,6 +97,9 @@ public class mainTest {
    
       
   }
+        }else{
+        System.out.println("acceso denegado");
+        }
         
         
     }
@@ -175,6 +190,31 @@ public class mainTest {
             e.printStackTrace();
         }
     }
+    
+    public static boolean Login(String username,String password,String archivo){
+        boolean buscado=false;
+        String Username="";
+        String Password="";
+        try{
+             x= new Scanner(new File(archivo));
+            x.useDelimiter("[,\n]");
+            while(x.hasNext() && !buscado){
+                Username=x.next();
+                Password=x.next();
+                if(Username.trim().equals(username)&& Password.trim().equals(password)){
+                    buscado=true;
+                }
+            }
+            x.close();
+            return buscado;
+            
+        }
+        catch(Exception e){
+            return false;
+          
+        }
+    }
+     
     
     
 }
