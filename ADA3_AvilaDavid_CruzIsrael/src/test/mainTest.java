@@ -190,17 +190,19 @@ public class mainTest {
             e.printStackTrace();
         }
     }
-    
+//función para el login de usuario
     public static boolean Login(String username,String password,String archivo){
         boolean buscado=false;
         String Username="";
         String Password="";
         try{
+              //Se lee el archivo 
              x= new Scanner(new File(archivo));
             x.useDelimiter("[,\n]");
             while(x.hasNext() && !buscado){
                 Username=x.next();
                 Password=x.next();
+               //se verifica usuario y contraseña
                 if(Username.trim().equals(username)&& Password.trim().equals(password)){
                     buscado=true;
                 }
