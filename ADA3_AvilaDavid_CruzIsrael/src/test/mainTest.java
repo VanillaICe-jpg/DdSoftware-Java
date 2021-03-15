@@ -40,6 +40,7 @@ public class mainTest {
         password=contrasenia.nextLine();
         if(Login(username,password,archivo)==true){
         //Registro de calificaciones
+        System.out.println("Acceso permitido");
         List<Usuario> usuarios = new ArrayList<Usuario>();
         //Archivo que contiene los alumnos
         String nombreFich = "alumnos.csv";
@@ -103,7 +104,7 @@ public class mainTest {
       
   }
         }else{
-        System.out.println("acceso denegado");
+        System.out.println("Acceso denegado");
         }
         
         
