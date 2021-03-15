@@ -25,10 +25,13 @@ import java.util.Scanner;
 public class mainTest {
       private static Scanner x;
       public static void main(String[] args) {
+       
         Scanner user = new Scanner(System.in);
         Scanner contrasenia = new Scanner(System.in);
         String username;
         String password;
+        //Login
+        //Archivo que contiene los usuarios que pueden acceder y sus contraseñas
         String archivo="miembros.csv";
         System.out.println("Identifíquese");
         System.out.println("Coloque su nombre de usuario:");
@@ -36,7 +39,9 @@ public class mainTest {
         System.out.println("Coloque su contraseña:");
         password=contrasenia.nextLine();
         if(Login(username,password,archivo)==true){
+        //Registro de calificaciones
         List<Usuario> usuarios = new ArrayList<Usuario>();
+        //Archivo que contiene los alumnos
         String nombreFich = "alumnos.csv";
         Scanner reader = new Scanner(System.in);
         int contadorL = -1;
